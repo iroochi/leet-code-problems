@@ -1,12 +1,11 @@
-def rotate_array(nums, k):
-    n = len(nums)
-    k = k % n # normalizing the value of k
-    nums.reverse() # reversing the whole array
-    nums[:k] = reversed(nums[:k]) # reversed the first k elements in the reversed array
-    nums[k:] = reversed(nums[k:]) # reversed the rest of the elements
-
-
-nums = [1,2,3,4,5,6,7]
-k = 3
-rotate_array(nums, k)
-print(nums)
+class Solution:
+    def rotate(self, nums: List[int], k: int) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        n = len(nums)
+        # normalizing k
+        k = k % n
+        nums.reverse()
+        nums[:k] = reversed(nums[:k])
+        nums[k:] = reversed(nums[k:])
